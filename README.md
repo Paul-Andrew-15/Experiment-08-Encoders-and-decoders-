@@ -7,8 +7,7 @@
 ## Encoders
 Binary code of N digits can be used to store 2N distinct elements of coded information. This is what encoders and decoders are used for. Encoders convert 2N lines of input into a code of N bits and Decoders decode the N bits into 2N lines.
 
-1. Encoders –
-An encoder is a combinational circuit that converts binary information in the form of a 2N input lines into N output lines, which represent N bit code for the input. For simple encoders, it is assumed that only one input line is active at a time.
+1. Encoders – An encoder is a combinational circuit that converts binary information in the form of a 2N input lines into N output lines, which represent N bit code for the input. For simple encoders, it is assumed that only one input line is active at a time.
 
 As an example, let’s consider Octal to Binary encoder. As shown in the following figure, an octal-to-binary encoder takes 8 input lines and generates 3 output lines.
 
@@ -55,42 +54,100 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
+
+Step1:- Open the quartus II software.
+
+Step2:- Create a new project.
+
+Step3:- Name the projects such that the same name is used for mentioning the name of the module.
+
+Step4:- Develop programmes for both Encoder and Decoder using verilog programming.
+
+Step5:- Run RTL Simulation.
+
+Step6:- Create the Timing diagram.
+
+Step7:- Validate the outputs.
 
 
 
 ### PROGRAM 
-/*
+```
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Paul Andrew D
+RegisterNumber:212221230075
+```
+### Encoder:
+```
+module exp8(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+output a,b,c;
+input d0,d1,d2,d3,d4,d5,d6,d7;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+```
+
+### Decoder:
+```
+module dec(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+output d0,d1,d2,d3,d4,d5,d6,d7;
+input a,b,c;
+assign d0=(~a & ~b & ~c) ;
+assign d1=(~a & ~b &c);
+assign d2=(~a & b &~c);
+assign d3=(~a & b &c);
+assign d4=(a &~b&~c);
+assign d5=(a &~b&c);
+assign d6=(a&b&~c);
+assign d7=(a&b&c);
+endmodule
+```
+
+
+
+### RTL LOGIC:
+### Encoder:
+![github.logo](enc.png)
+
+
+### Decoder:
+![github.logo](dec.png)
+
+
+
+
+### TIMING DIGRAMS:
+### Encoder:
+![enctd](https://user-images.githubusercontent.com/94154780/199722107-709df604-dfae-4efb-af8b-9571c3d8fc23.png)
+
+![enctd1](https://user-images.githubusercontent.com/94154780/199722185-1bf463b5-8434-46fc-ae16-232db5e63903.png)
+
+![encd2](https://user-images.githubusercontent.com/94154780/199722239-885a42f9-5101-4f79-9f1a-215efd591268.png)
+
+
+
+### Decoder:
+![github.logo](detim.png)
+
+
+
+
+### TRUTH TABLE:
+### Encoder:
+![github.logo](tt.png)
+
+### Decoder:
+![github.logo](tt1.png)
 
 
 
 
 
 
-### RTL LOGIC  
 
 
+### RESULTS:
+Thus 8 to 3 Encoder and 3to8 Decoder are implemented successfully using verilog and validate its outputs
 
 
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
